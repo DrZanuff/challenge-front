@@ -3,7 +3,12 @@ import { Search , Person , ShoppingCart , Menu , Close} from '@material-ui/icons
 import Link from 'next/link';
 import styles from './styles.module.scss';
 
-export default function Header() {
+interface HeaderProps {
+    showCart : boolean;
+    setShowCart : (state : boolean) => void;
+}
+
+export default function Header( { setShowCart , showCart } : HeaderProps ) {
     const minDesktopSize = 1280;
 
     const [isDesktop, setDesktop] = useState(true);
@@ -22,6 +27,7 @@ export default function Header() {
         newSelectedIcon[icon] = true;
 
         setSelectedIcon(newSelectedIcon);
+        setShowCart(!showCart);
     }
  
     useEffect(() => {
@@ -59,7 +65,7 @@ export default function Header() {
                         className={selectedIcon.search ? styles.active : ''}
                         onClick={ () => handleIconSelect('search')}
                         >
-                            <Search fontSize="small"></Search>
+                            <Search style={{ fontSize: 30 }}></Search>
                             <span></span>
                         </div>
 
@@ -67,7 +73,7 @@ export default function Header() {
                         className={selectedIcon.user ? styles.active : ''}
                         onClick={ () => handleIconSelect('user')}
                         >
-                            <Person fontSize="small"></Person>
+                            <Person style={{ fontSize: 30 }}></Person>
                             <span></span>
                         </div>
 
@@ -75,7 +81,7 @@ export default function Header() {
                         className={selectedIcon.cart ? styles.active : ''}
                         onClick={ () => handleIconSelect('cart')}
                         >
-                            <ShoppingCart fontSize="small" ></ShoppingCart>
+                            <ShoppingCart style={{ fontSize: 30 }}></ShoppingCart>
                             <span></span>
                         </div>
                         
