@@ -8,7 +8,22 @@ export default function Header() {
 
     const [isDesktop, setDesktop] = useState(true);
     const [isMobileMenuOpen , setIsMobileMenuOpen] = useState(false);
+    const [selectedIcon , setSelectedIcon ] = useState(
+        { search : false , user : false , cart : false }
+    )
 
+    function handleIconSelect(icon : 'search' | 'user' | 'cart') {
+        let newSelectedIcon = {...selectedIcon}
+
+        let i : keyof typeof newSelectedIcon
+        for ( i in newSelectedIcon){
+            newSelectedIcon[i] = false;
+        }
+        newSelectedIcon[icon] = true;
+
+        setSelectedIcon(newSelectedIcon);
+    }
+ 
     useEffect(() => {
         window.addEventListener("resize", ()=>{ 
             setDesktop(window.innerWidth > minDesktopSize);
@@ -40,9 +55,30 @@ export default function Header() {
                     }
 
                     <div className={styles.user}>
-                        <Search fontSize="small"></Search>
-                        <Person fontSize="small"></Person>
-                        <ShoppingCart fontSize="small"></ShoppingCart>
+                        <div 
+                        className={selectedIcon.search ? styles.active : ''}
+                        onClick={ () => handleIconSelect('search')}
+                        >
+                            <Search fontSize="small"></Search>
+                            <span></span>
+                        </div>
+
+                        <div 
+                        className={selectedIcon.user ? styles.active : ''}
+                        onClick={ () => handleIconSelect('user')}
+                        >
+                            <Person fontSize="small"></Person>
+                            <span></span>
+                        </div>
+
+                        <div 
+                        className={selectedIcon.cart ? styles.active : ''}
+                        onClick={ () => handleIconSelect('cart')}
+                        >
+                            <ShoppingCart fontSize="small" ></ShoppingCart>
+                            <span></span>
+                        </div>
+                        
                     </div>
 
                 </div>
@@ -66,6 +102,8 @@ export default function Header() {
                 </nav>
             </div>
             }
+
+            
 
         </>
     )

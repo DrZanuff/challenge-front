@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Header from './components/Header';
+import Cart from './components/Cart';
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Header />
+      <Cart />
 
       
     </div>
