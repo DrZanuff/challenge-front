@@ -1,4 +1,4 @@
-import {Animated} from 'react-animated-css'; 
+import { Animated } from 'react-animated-css'; 
 import styles from './styles.module.scss';
 
 interface Item {
