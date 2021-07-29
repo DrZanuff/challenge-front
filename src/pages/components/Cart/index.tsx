@@ -10,13 +10,11 @@ interface Item {
     image: string,
 }
 
-/* interface CartItems {
-    cart : Item[]
-} */
-
 interface CartProps {
     showCart : boolean
-    cart? : Item[]
+    cart : {
+        item: Item[]
+    }
 }
 
 
