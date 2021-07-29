@@ -15,7 +15,7 @@ export default function Home() {
       </Head>
 
       <Header setShowCart={setShowCart} showCart={showCart}/>
-      <Cart />
+      <Cart showCart={showCart}/>
 
       
     </div>

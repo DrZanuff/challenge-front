@@ -24,10 +24,13 @@ export default function Header( { setShowCart , showCart } : HeaderProps ) {
         for ( i in newSelectedIcon){
             newSelectedIcon[i] = false;
         }
-        newSelectedIcon[icon] = true;
+        newSelectedIcon[icon] = !selectedIcon[icon];
 
         setSelectedIcon(newSelectedIcon);
-        setShowCart(!showCart);
+        if (icon == 'cart'){
+            setShowCart(!showCart);
+        }
+        
     }
  
     useEffect(() => {
@@ -66,7 +69,7 @@ export default function Header( { setShowCart , showCart } : HeaderProps ) {
                         onClick={ () => handleIconSelect('search')}
                         >
                             <Search style={{ fontSize: 30 }}></Search>
-                            <span></span>
+                            {/* <span></span> */}
                         </div>
 
                         <div 
@@ -74,7 +77,7 @@ export default function Header( { setShowCart , showCart } : HeaderProps ) {
                         onClick={ () => handleIconSelect('user')}
                         >
                             <Person style={{ fontSize: 30 }}></Person>
-                            <span></span>
+                            {/* <span></span> */}
                         </div>
 
                         <div 

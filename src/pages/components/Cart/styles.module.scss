@@ -1,19 +1,29 @@
 @keyframes show {
  
-    from{
-        margin-top: -400px;
+    0% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 0;
     }
 
     to{
-        margin-top: 0px;
+        opacity: 1;
     }
 
 }
 
-.container {
+.animationAlign {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+
+.container {
+    /* width: 100%;
+    display: flex;
+    justify-content: flex-end; */
     margin-right: 1.875rem;
 
     .cartContainer {
@@ -21,7 +31,7 @@
         width: 330px;
         height: 457px;
         animation-name: show;
-        animation-duration: 0.5s;
+        animation-duration: 1.5s;
 
         .items {
             overflow-y: scroll;
@@ -135,5 +145,22 @@
     span:nth-child(2) {
         font-weight: 700;
         color: #565656;
+    }
+}
+
+.selector {
+    position: relative;
+
+    span {
+        position: absolute;
+        top: 64px;
+        width: 0; 
+        height: 0;
+        margin-left: -4px;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        
+        border-bottom: 16px solid #efefef;
+
     }
 }

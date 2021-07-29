@@ -1,10 +1,21 @@
 import {Animated} from 'react-animated-css'; 
 import styles from './styles.module.scss';
 
-export default function Cart( ) {
+interface CartProps {
+    showCart : boolean
+}
+
+export default function Cart( { showCart } : CartProps ) {
 
     return(
-        <Animated isVisible={false} animationIn='slideInDown' animationOut='slideOutUp' >
+        <>
+        <Animated
+        isVisible={showCart}
+        animationIn='slideInDown'
+        animationOut='slideOutUp'
+        className={styles.animationAlign}
+        >
+            {/* <div className={`${styles.container} ${showCart ? '' : styles.marginTop}`} */}
             <div className={styles.container}>
                 <div className={styles.cartContainer}>
 
@@ -86,6 +97,7 @@ export default function Cart( ) {
 
             </div>
         </Animated>
+        </>
     )
 
 }
