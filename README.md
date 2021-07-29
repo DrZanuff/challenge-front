@@ -1,34 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8875a84a-5a79-4463-9725-4fde99394f68/deploy-status)](https://app.netlify.com/sites/carrinho-de-compras-desafio-e-plus/deploys)
 
-## Getting Started
+Este é uma simples interface de um carrinho de compras criado para o desafio da agência E-Plus.
 
-First, run the development server:
+
+
+## Projeto
+
+## Tecnologias usadas
+
+- Next.JS
+- ReactJS
+- Typescript
+- SCSS
+- [react-animated-css](https://www.npmjs.com/package/react-animated-css)
+
+## Como usar
+
+Faça um clone desse repositório e rode o comando yarn
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Link para a Aplicação:
+https://carrinho-de-compras-desafio-e-plus.netlify.app/
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+## Funcionalidades
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Header responsivo
+O maior foco da responsividade foi no Header da página. Este componente possui um menu no centro, então resolvi ao mudar a resolução esconder as opções e colocá-lo em um botão mobile ao lado logo:
 
-## Learn More
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart1.png?raw=true)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Usei algumas animações no Header usando CSS para exibir o menu mobile e um efeito de hover nas opções do menu, isto oferece uma melhor experiência para o usuários.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart2.gif?raw=true)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Carrinho de Compras:
+O maior desafio inicialmente foi posicionar o carrinho de compras sempre próximo ao botão do carrinho no Header. Inicialmente usei animações no CSS para fazer o carrinho surgir, mas resolvi usar uma biblioteca React para isso, chamada react-animated-css (Link), pois assim precisava apenas passar para o componente o estado de exibição do carrinho, definir os tipos de animações e pronto.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart3.gif?raw=true)
+
+
+O botão do carrinho também possui um estado para exibir e esconder o componente Cart e então deixando o react-animated-css fazer seu trabalho. Também coloquei alguns efeitos de hover sobre o botão Finalizar Compra . 
+
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart4.gif?raw=true)
+
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart5.gif?raw=true)
+
+
+Para exibir todos os itens do carrinho, utilizei a função map e para calcular o total a função reduce.
+
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart6.png?raw=true)
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart7.png?raw=true)
+
+#### Responsividade
+Fiz um trabalho bem minucioso para deixar a página responsiva em todas resoluções. Atualmente estou satisfeito com o resultado, mas acredito que com mais tempo é possível melhorar mais ainda esta responsividade.
+
+![alt text](https://github.com/DrZanuff/challenge-front/blob/master/public/docs/eplusCart9.gif?raw=true)
+
+## O porquê das tecnologias
+
+#### Next.js
+Faz pouco tempo que comecei a usar o Next.js mas já posso as enormes vantagens que ele traz out-of-box, isso tirando as funcionalidades de Server Side Rendering e Static Site Generator, imprescindíveis para o SEO do Google.
+
+#### Typescript
+O Typescript traz uma carga um pouco maior para o desenvolvimento, mas compensa ao longo prazo, para projetos maiores e trabalhando com equipes. A tipagem dele faz muita diferença e depois que você se acostuma é difícil ficar sem. Qaundo voce está aprendendo, pode ser um pouco acertar os formatos dos objetos, mas vale cada esforço dominar essa linguagem.
+
+#### SCSS
+Outra tecnologia que melhora a vida do desenvolvedor. Trabalhar com CSS em cascata e funcionalidades de escopo de estilo junto com Next.js adianta muito a vida do desenvolvedor. 
