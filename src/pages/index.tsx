@@ -14,7 +14,9 @@ type Item = {
 }
 
 interface CartItems {
-  cart : Item[]
+  cart : {
+    item: Item[]
+  }
 }
 
 export default function Home() {
@@ -44,7 +46,7 @@ export default function Home() {
       </Head>
 
       <Header setShowCart={setShowCart} showCart={showCart}/>
-      <Cart showCart={showCart} cart={itemsInCart?.cart}/>
+      <Cart showCart={showCart} cart={itemsInCart.cart}/>
 
       
     </div>
