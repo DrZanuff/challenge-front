@@ -16,15 +16,19 @@ Este é uma simples interface de um carrinho de compras criado para o desafio da
 
 ## Como usar
 
-Faça um clone desse repositório e rode o comando yarn
-
+Faça um clone desse repositório e rode o comando yarn ou npm para obter as dependências do projeto.
 ```bash
-npm run dev
-# ou
+yarn
+```
+Execute o seguinte comando no terminal para iniciar o servidor local do projeto.
+```bash
 yarn dev
 ```
 
-Link para a Aplicação:
+O Projeto será executado na porta 3000 e será acessível através da URL http://localhost:3000
+
+## Demonstração
+Link para a Aplicação Live:
 https://carrinho-de-compras-desafio-e-plus.netlify.app/
 
 
