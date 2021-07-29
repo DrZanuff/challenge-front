@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.scss'
 import { useState } from 'react';
 
 export default function Home() {
-  const [showCart , setShowCart] = useState(false)
+  const [showCart , setShowCart] = useState(true)
 
   return (
     <div className={styles.container}>

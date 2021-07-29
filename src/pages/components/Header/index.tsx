@@ -14,23 +14,16 @@ export default function Header( { setShowCart , showCart } : HeaderProps ) {
     const [isDesktop, setDesktop] = useState(true);
     const [isMobileMenuOpen , setIsMobileMenuOpen] = useState(false);
     const [selectedIcon , setSelectedIcon ] = useState(
-        { search : false , user : false , cart : false }
+        { search : false , user : false , cart : true }
     )
 
-    function handleIconSelect(icon : 'search' | 'user' | 'cart') {
+    function handleIconSelect(status : boolean) {
         let newSelectedIcon = {...selectedIcon}
 
-        let i : keyof typeof newSelectedIcon
-        for ( i in newSelectedIcon){
-            newSelectedIcon[i] = false;
-        }
-        newSelectedIcon[icon] = !selectedIcon[icon];
+        newSelectedIcon['cart'] = !selectedIcon['cart'];
 
         setSelectedIcon(newSelectedIcon);
-        if (icon == 'cart'){
-            setShowCart(!showCart);
-        }
-        
+        setShowCart(!showCart);
     }
  
     useEffect(() => {
@@ -64,25 +57,17 @@ export default function Header( { setShowCart , showCart } : HeaderProps ) {
                     }
 
                     <div className={styles.user}>
-                        <div 
-                        className={selectedIcon.search ? styles.active : ''}
-                        onClick={ () => handleIconSelect('search')}
-                        >
+                        <div>
                             <Search style={{ fontSize: 30 }}></Search>
-                            {/* <span></span> */}
                         </div>
 
-                        <div 
-                        className={selectedIcon.user ? styles.active : ''}
-                        onClick={ () => handleIconSelect('user')}
-                        >
+                        <div>
                             <Person style={{ fontSize: 30 }}></Person>
-                            {/* <span></span> */}
                         </div>
 
                         <div 
                         className={selectedIcon.cart ? styles.active : ''}
-                        onClick={ () => handleIconSelect('cart')}
+                        onClick={ () => handleIconSelect(true)}
                         >
                             <ShoppingCart style={{ fontSize: 30 }}></ShoppingCart>
                             <span></span>
