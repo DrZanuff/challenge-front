@@ -44,7 +44,10 @@ export default function Header( { setShowCart , showCart } : HeaderProps ) {
                     </div>
                     }
 
-                    <img src="/images/logo/agencia-eplus-n-logo.png" alt="Logo Eplus"></img>
+                    <div className={styles.logo}>
+                        <img src="/images/logo/agencia-eplus-n-logo.png" alt="Logo Eplus"></img>
+                    </div>
+                    
 
                     {
                     isDesktop &&
