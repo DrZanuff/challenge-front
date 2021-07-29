@@ -1,11 +1,37 @@
 import {Animated} from 'react-animated-css'; 
 import styles from './styles.module.scss';
 
-interface CartProps {
-    showCart : boolean
+interface Item {
+    productId: number,
+    name: string,
+    bestPriceFormated: string,
+    bestPrice: number,
+    quantity: number,
+    image: string,
 }
 
-export default function Cart( { showCart } : CartProps ) {
+/* interface CartItems {
+    cart : Item[]
+} */
+
+interface CartProps {
+    showCart : boolean
+    cart? : Item[]
+}
+
+
+
+export default function Cart( { showCart , cart } : CartProps ) {
+
+    const total = cart?.item.reduce( (acc : number ,element : Item)=> ( acc += element.bestPrice ), 0 )
+    const totalFormated = new Intl.NumberFormat(
+        'pt-BR' ,
+        {
+            style: 'currency', currency: 'BRL'
+        } ).format(total / 100)
+    
+    console.log(total / 100)
+    console.log(totalFormated)
 
     return(
         <>
@@ -20,7 +46,27 @@ export default function Cart( { showCart } : CartProps ) {
                 <div className={styles.cartContainer}>
 
                     <div className={styles.items}>
-                        <div className={styles.item}>
+
+                        {
+                            cart?.item.map( item => (
+                                <div className={styles.item} key={item.productId}>
+
+                                    <img src={item.image} alt={item.name} />
+                                    <div className={styles.info}>
+                                        <p>
+                                            {String(item.name).substring(0,35)}...
+                                        </p>
+        
+                                        <div className={styles.stock}>
+                                            <span>Qtd.: {item.quantity}</span>
+                                            <span>{item.bestPriceFormated}</span>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            ) )
+                        }
+                        {/* <div className={styles.item}>
 
                             <img src="/images/products/impressora-canon-160-160.jpg" alt="impressora-canon" />
                             <div className={styles.info}>
@@ -82,11 +128,12 @@ export default function Cart( { showCart } : CartProps ) {
                                 </div>
                             </div>
 
-                        </div>
+                        </div>*/}
                     </div>
 
                     <div className={styles.total}>
-                        <span>Total do pedido:</span><span>R$21.204,00</span>
+                        <span>Total do pedido:</span>
+                        <span>{total === NaN ? 'R$ 0,00' : totalFormated }</span>
                     </div>
 
                     <button>

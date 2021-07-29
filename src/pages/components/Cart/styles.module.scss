@@ -40,6 +40,7 @@
             flex-direction: column;
             padding: 0 0.2rem;
             max-height: 343px;
+            min-height: 343px;
 
             /* Works on Firefox */
             scrollbar-width: thin;
@@ -162,5 +163,34 @@
         
         border-bottom: 16px solid #efefef;
 
+    }
+}
+
+@media (max-width : 490px) {
+
+    .container {
+        margin-right: 0px;
+    }
+    
+}
+
+@media (max-width: 280px) {
+
+    .container {
+        .cartContainer {
+            width: 280px;
+            height: 480px;
+
+            .items {
+                max-height: 480px;
+
+                .item {
+                    img {
+                        width: 48px;
+                        height: 48px;
+                    }
+                }
+            }
+        }
     }
 }

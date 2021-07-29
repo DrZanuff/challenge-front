@@ -8,7 +8,6 @@
     padding: 0 32px;
     z-index: 2;
     
-
     .content {
         display: flex;
         align-items: center;
@@ -110,6 +109,65 @@
         }
 
     }
+
+}
+
+@media (max-width: 490px) {
+
+    .container {
+
+        .content {
+
+            img {
+                height: 25px;
+               margin-left: 0.4rem;
+               margin-right: 0.4rem;
+            }
+
+        }
+
+    }
+
+    .user {
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 280px) {
+
+    .container {
+
+        .content {
+
+            img {
+                height: 23px;
+                margin-left: 0.3rem;
+                margin-right: 0.3rem;
+            }
+
+        }
+
+    }
+
+    .user {
+        gap: 0.5rem;
+
+        .active {
+        
+            span {
+                top: 70px;
+                margin-left: 4px;
+                border-left: 8px solid transparent;
+                border-right: 8px solid transparent;
+                
+                border-bottom: 8px solid #efefef;
+        
+            }
+        }
+    }
+
+
 
 }
 
